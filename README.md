@@ -1,10 +1,10 @@
 # Ionic 5 Star Rating
 
-This library was forked from https://github.com/melwinVincent/ionic4-star-rating for a test of Ionic 5.
+This library was forked from https://github.com/JeongJun-Lee/ionic5-star-rating/ for a simple modification.
 
 ## Install
 
-Run `npm install --save https://github.com/JeongJun-Lee/ionic5-star-rating/tarball/master`
+Run `npm install --save https://github.com/arthurcipolari/ionic5-star-rating/tarball/master`
 
 ## How to use
 

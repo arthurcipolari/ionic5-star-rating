@@ -31,12 +31,12 @@ var StarRating = /** @class */ (function () {
     StarRating.prototype.ngOnInit = /**
      * @return {?}
      */
-    function () {
-        this.rating = this.rating || 3; //default after input`s initialization
-        for (var i = 0; i < this.maxRating; i++) {
-            this.iconsArray.push(i);
-        }
-    };
+        function () {
+            this.rating = this.rating || 3; //default after input`s initialization
+            for (var i = 0; i < this.maxRating; i++) {
+                this.iconsArray.push(i);
+            }
+        };
     /**
      * @param {?} obj
      * @return {?}
@@ -45,9 +45,9 @@ var StarRating = /** @class */ (function () {
      * @param {?} obj
      * @return {?}
      */
-    function (obj) {
-        this.rating = obj;
-    };
+        function (obj) {
+            this.rating = obj;
+        };
     /**
      * @param {?} fn
      * @return {?}
@@ -56,9 +56,9 @@ var StarRating = /** @class */ (function () {
      * @param {?} fn
      * @return {?}
      */
-    function (fn) {
-        this.onChange = fn;
-    };
+        function (fn) {
+            this.onChange = fn;
+        };
     /**
      * @param {?} fn
      * @return {?}
@@ -67,9 +67,9 @@ var StarRating = /** @class */ (function () {
      * @param {?} fn
      * @return {?}
      */
-    function (fn) {
-        this.onTouched = fn;
-    };
+        function (fn) {
+            this.onTouched = fn;
+        };
     /**
      * @param {?} isDisabled
      * @return {?}
@@ -78,27 +78,27 @@ var StarRating = /** @class */ (function () {
      * @param {?} isDisabled
      * @return {?}
      */
-    function (isDisabled) {
-        this.readonly = isDisabled ? "true" : "false";
-    };
+        function (isDisabled) {
+            this.readonly = isDisabled ? "true" : "false";
+        };
     Object.defineProperty(StarRating.prototype, "rating", {
         get: /**
          * @return {?}
          */
-        function () {
-            return this._rating;
-        },
+            function () {
+                return this._rating;
+            },
         set: /**
          * @param {?} val
          * @return {?}
          */
-        function (val) {
-            this._rating = val;
-            // for form
-            if (this.onChange) {
-                this.onChange(val);
-            }
-        },
+            function (val) {
+                this._rating = val;
+                // for form
+                if (this.onChange) {
+                    this.onChange(val);
+                }
+            },
         enumerable: true,
         configurable: true
     });
@@ -110,34 +110,36 @@ var StarRating = /** @class */ (function () {
      * @param {?} event
      * @return {?}
      */
-    function (event) {
-        if (this.readonly && this.readonly === "true")
-            return;
-        // event is different for firefox and chrome
-        /** @type {?} */
-        var id = event.target.id ? parseInt(event.target.id) : parseInt(event.target.parentElement.id);
-        if (this.halfStar && this.halfStar === "true") {
-            this.rating = ((this.rating - id > 0) && (this.rating - id <= 0.5)) ? id + 1 : id + .5;
-        }
-        else {
-            this.rating = id + 1;
-        }
-        // unique event
-        this.ratingChanged.emit(this.rating);
-    };
+        function (event) {
+            if (this.readonly && this.readonly === "true")
+                return;
+            // event is different for firefox and chrome
+            /** @type {?} */
+            var id = event.target.id ? parseInt(event.target.id) : parseInt(event.target.parentElement.id);
+            if (this.halfStar && this.halfStar === "true") {
+                this.rating = id + 1; //id + 1; //((this.rating - id > 0) && (this.rating - id <= 0.5)) ? id + 1 : id + .5;
+            }
+            else {
+                this.rating = id + 1;
+            }
+            // unique event
+            this.ratingChanged.emit(this.rating);
+        };
     StarRating.decorators = [
-        { type: Component, args: [{
-                    selector: 'ionic5-star-rating',
-                    template: HTML_TEMPLATE,
-                    providers: [
-                        {
-                            provide: NG_VALUE_ACCESSOR,
-                            useExisting: StarRating,
-                            multi: true
-                        }
-                    ],
-                    styles: [CSS_STYLE]
-                }] }
+        {
+            type: Component, args: [{
+                selector: 'ionic5-star-rating',
+                template: HTML_TEMPLATE,
+                providers: [
+                    {
+                        provide: NG_VALUE_ACCESSOR,
+                        useExisting: StarRating,
+                        multi: true
+                    }
+                ],
+                styles: [CSS_STYLE]
+            }]
+        }
     ];
     /** @nocollapse */
     StarRating.ctorParameters = function () { return []; };

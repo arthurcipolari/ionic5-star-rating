@@ -106,7 +106,7 @@ class StarRating {
         /** @type {?} */
         let id = event.target.id ? parseInt(event.target.id) : parseInt(event.target.parentElement.id);
         if (this.halfStar && this.halfStar === "true") {
-            this.rating = ((this.rating - id > 0) && (this.rating - id <= 0.5)) ? id + 1 : id + .5;
+            this.rating = id + 1; //((this.rating - id > 0) && (this.rating - id <= 0.5)) ? id + 1 : id + .5;
         }
         else {
             this.rating = id + 1;
@@ -116,18 +116,20 @@ class StarRating {
     }
 }
 StarRating.decorators = [
-    { type: Component, args: [{
-                selector: 'ionic5-star-rating',
-                template: HTML_TEMPLATE,
-                providers: [
-                    {
-                        provide: NG_VALUE_ACCESSOR,
-                        useExisting: StarRating,
-                        multi: true
-                    }
-                ],
-                styles: [CSS_STYLE]
-            }] }
+    {
+        type: Component, args: [{
+            selector: 'ionic5-star-rating',
+            template: HTML_TEMPLATE,
+            providers: [
+                {
+                    provide: NG_VALUE_ACCESSOR,
+                    useExisting: StarRating,
+                    multi: true
+                }
+            ],
+            styles: [CSS_STYLE]
+        }]
+    }
 ];
 /** @nocollapse */
 StarRating.ctorParameters = () => [];
@@ -198,14 +200,16 @@ if (false) {
 class StarRatingModule {
 }
 StarRatingModule.decorators = [
-    { type: NgModule, args: [{
-                declarations: [StarRating],
-                imports: [
-                    IonicModule,
-                    CommonModule
-                ],
-                exports: [StarRating]
-            },] }
+    {
+        type: NgModule, args: [{
+            declarations: [StarRating],
+            imports: [
+                IonicModule,
+                CommonModule
+            ],
+            exports: [StarRating]
+        },]
+    }
 ];
 
 /**
